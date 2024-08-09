@@ -1,32 +1,27 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
+import About from './components/About';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Contact from './components/Contact';
 
 const App = () => {
   const profileImage = '../src/assets/profile_img.png';
-  const awards = [
-    {
-      title: 'Full stack developer for more than 4 years',
-      description: 'Professional and for 12 years by vocation, the creation of applications is a passion before being a profession.',
-      image: null,
-    },
-    {
-      title: 'Best Developer Award',
-      description: '',
-      image: 'path_to_trophy_image', // Replace with actual image path
-    },
-    {
-      title: '50+ happy clients',
-      description: '',
-      image: 'path_to_clients_image', // Replace with actual image path
-    },
-  ];
 
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col">
-      <Header />
-      <HeroSection profileImage={profileImage} />
-      {/* <ContentSection awards={awards} /> */}
-    </div>
+    <Router>
+      <div className="bg-black text-white min-h-screen flex flex-col">
+        <Header />
+        <Routes>
+          <Route path="/" element={<HeroSection profileImage={profileImage} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

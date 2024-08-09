@@ -4,7 +4,6 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false,
   theme: {
     extend: {
       colors: {
@@ -20,11 +19,10 @@ export default {
         cursive: ['"Pacifico"', 'cursive'],
         caveat: ['Caveat', 'cursive'],
       },
-      height:{
+      height: {
         'screen-minus-80': 'calc(100vh - 80px)',
       }
     },
   },
   plugins: [],
 }
-
