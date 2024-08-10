@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'; 
+import myLogo from '../assets/pushparajk_logo.png'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,14 +10,58 @@ const Header = () => {
   };
 
   return (
-    <header className="flex justify-between items-center p-6 bg-black text-white">
-      <Link to="/" className="text-2xl font-normal tracking-widest uppercase">Pushparaj K</Link>
+    <header className="flex justify-between items-center p-6 bg-transparent text-white z-50">
+      <NavLink to="/" className="text-2xl font-normal tracking-widest uppercase">
+      <img src={myLogo} alt="Pushparaj.K"  className='h-11'/>
+      </NavLink>
       <nav className="hidden md:flex gap-6 items-center">
-        <Link to="/about" className="hover:text-blue-500 font-normal">About me</Link>
-        <Link to="/skills" className="hover:text-blue-500 font-normal">Skills</Link>
-        <Link to="/experience" className="hover:text-blue-500 font-normal">Experience</Link>
-        <Link to="/contact" className="hover:text-blue-500 font-normal">Contact me</Link>
-        <a target="_blank" href="https://www.linkedin.com/in/pushparaj-k-51937312b/" className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-1 rounded-full">Hire me</a>
+        <NavLink 
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 font-normal' : 'hover:text-red-500 font-normal'
+          }
+        >
+          About me
+        </NavLink>
+        <NavLink
+          to="/skills"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 font-normal' : 'hover:text-red-500 font-normal'
+          }
+        >
+          Skills
+        </NavLink>
+        <NavLink
+          to="/experience"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 font-normal' : 'hover:text-red-500 font-normal'
+          }
+        >
+          Experience
+        </NavLink>
+        <NavLink
+          to="/projects"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 font-normal' : 'hover:text-red-500 font-normal'
+          }
+        >
+          Projects
+        </NavLink>
+        {/* <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 font-normal' : 'hover:text-red-500 font-normal'
+          }
+        >
+          Contact me
+        </NavLink> */}
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/pushparaj-k-51937312b/"
+          className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-1 rounded-full"
+        >
+          Hire me
+        </a>
       </nav>
       <button
         className="md:hidden flex items-center px-3 py-2 border rounded text-white border-white"
@@ -28,11 +73,53 @@ const Header = () => {
         </svg>
       </button>
       <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden absolute top-16 right-0 w-full bg-black text-white z-50 p-3`}>
-        <Link to="/about" className="block py-2 hover:text-blue-500">About me</Link>
-        <Link to="/skills" className="block py-2 hover:text-blue-500">Skills</Link>
-        <Link to="/experience" className="block py-2 hover:text-blue-500">Experience</Link>
-        <Link to="/contact" className="block py-2 hover:text-blue-500">Contact me</Link>
-        <a target="_blank" href="https://www.linkedin.com/in/pushparaj-k-51937312b/" className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-1 rounded-full">Hire me</a>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 block py-2' : 'hover:text-red-500 block py-2'
+          }
+        >
+          About me
+        </NavLink>
+        <NavLink
+          to="/skills"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 block py-2' : 'hover:text-red-500 block py-2'
+          }
+        >
+          Skills
+        </NavLink>
+        <NavLink
+          to="/experience"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 block py-2' : 'hover:text-red-500 block py-2'
+          }
+        >
+          Experience
+        </NavLink>
+        <NavLink
+          to="/projects"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 block py-2' : 'hover:text-red-500 block py-2'
+          }
+        >
+          Projects
+        </NavLink>
+        {/* <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? 'text-red-500 block py-2' : 'hover:text-red-500 block py-2'
+          }
+        >
+          Contact me
+        </NavLink> */}
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/pushparaj-k-51937312b/"
+          className="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-1 rounded-full"
+        >
+          Hire me
+        </a>
       </div>
     </header>
   );
